@@ -1,6 +1,6 @@
 // 3. import the useState from react
 
-
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
@@ -8,18 +8,15 @@ import "./App.css";
 
 function App() {
   // 4. Create useState variables for Mr. Castro called castroLikes and setCastroLikes, make the default 5
-
-
+  const [castroLikes, setCastroLikes] = useState(5);
 
   // 5. Create useState variables for Mr. Chambers called chambersDislikes and setChambersDislikes, make the default 10
-
-
+  const [chambersDislikes, setChambersDislikes] = useState(10);
 
   // 6. Create useState variables for a dark/light mode called darkMode and setDarkMode
 
   // delete darkMode before writing your new variables
-  const darkMode = ""
-
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <div className={darkMode ? "page dark-mode" : "page"}>
@@ -58,17 +55,15 @@ function App() {
               <button
                 className="counter"
                 // 7. Add an onClick in the button that increases castroLikes by 1 
-                
-
+                onClick={() => setCastroLikes(castroLikes+1)}
 
               >
                 Like Mr. Castro 👍
               </button>
 
               {/* 8. Display castroLikes here after the 👍 using curly brackets  */}
-              <p>Likes: 👍   </p>
+              <p>Likes: 👍  {castroLikes} </p>
             </div>
-
             <div className="teacher-card">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/5b328976aa49a1b7b46b89c3/1737065078925-4ZB8D62QP1PZ0K0FM7OC/CSH+Faculty+010225+IB_IAN_7044.jpg?format=1000w"
@@ -83,14 +78,14 @@ function App() {
                 className="counter"
                 // 9. Add an onClick in the button that increases chambersDislikes by 1 
 
-
+onClick={() => setChambersDislikes(chambersDislikes+1)}
 
               >
                 Dislike Mr. Chambers 👎
               </button>
 
              {/* 10. display chambersDislikes here after the 👎 using curly brackets  */}
-              <p>Dislikes: 👎  </p>
+              <p>Dislikes: 👎{chambersDislikes}  </p>
             </div>
           </div>
 
@@ -100,13 +95,14 @@ function App() {
             onClick={() => {
               {/* 11. reset castroLikes back to 0 here */}
               
-              
+              setCastroLikes(0)
 
 
 
               {/* 12. reset chambersDislikes back to 0 here */}
               
               
+    setChambersDislikes(0)
 
 
 
@@ -116,12 +112,12 @@ function App() {
           </button>
 
           {/* 13. Add this to the button below onClick:  onClick={() => setDarkMode(!darkMode)} */}
-          <button className="counter"            >
+          <button className="counter"     onClick={() => setDarkMode(!darkMode)}        >
             Change Screen Mode
           </button>
 
             {/* 14 Add this after the colon below: {darkMode ? "Dark Mode" : "Light Mode"} */}
-          <p>Current Mode:               </p>
+          <p>Current Mode:  {darkMode ? "Dark Mode" : "Light Mode"}             </p>
 
           {/* 15. Submit! (git add . git commit -m 'done' git push) */}
         </section>
